@@ -1,0 +1,151 @@
+# docker-compose.yml — TechMind · Entorno local y despliegue en OCI Free Tier
+#
+# ⚙️  Optimizado para: 1 vCPU · 1 GB RAM · 2 GB Swap (OCI VM.Standard.E2.1.Micro)
+#
+# Presupuesto de memoria (RAM real):
+#   postgres:   ~150 MB  (tuned: shared_buffers=32MB, max_connections=20)
+#   fastapi:    ~220 MB  (joblib models + uvicorn 1 worker)
+#   springboot: ~384 MB  (JVM heap 256MB + metaspace + overhead)
+#   frontend:   ~48  MB  (Nginx static serving)
+#   OS + Docker overhead: ~180 MB
+#   ─────────────────────────────────
+#   Total RAM estimado:  ~982 MB  ← dentro del límite de 1 GB
+#   Swap disponible:    2 GB      ← cubre picos de carga sin OOM Killer
+#
+# Modo 1 — Desarrollo local (Solo PostgreSQL activo):
+#   docker compose up -d
+#
+# Modo 2 — Despliegue 100% Dockerizado (todos los servicios):
+#   docker compose --profile full up -d --build
+#
+
+services:
+
+  # ── 1. Base de Datos PostgreSQL ───────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: techmind-postgres
+    restart: unless-stopped
+    # Tuning PostgreSQL para servidor de 1 GB RAM (valores conservadores)
+    # shared_buffers=32MB     : buffer pool reducido (defecto 128MB es demasiado)
+    # work_mem=4MB            : memoria por operación de sort/hash (20 conx × 4MB = 80MB peak)
+    # maintenance_work_mem=32MB: para VACUUM, CREATE INDEX, etc.
+    # effective_cache_size=128MB: estimación de caché OS disponible para el planner
+    # max_connections=20      : limita conexiones simultáneas (Spring Boot pool de 5)
+    # wal_buffers=8MB         : buffers de Write-Ahead Log
+    # checkpoint_completion_target=0.9: distribuye I/O de checkpoints
+    command: >
+      postgres
+      -c shared_buffers=32MB
+      -c work_mem=4MB
+      -c maintenance_work_mem=32MB
+      -c effective_cache_size=128MB
+      -c max_connections=20
+      -c wal_buffers=8MB
+      -c checkpoint_completion_target=0.9
+    mem_limit: 150m
+    memswap_limit: 300m
+    cpus: "0.25"
+    environment:
+      POSTGRES_DB:       techmind
+      POSTGRES_USER:     techmind_user
+      POSTGRES_PASSWORD: techmind_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - techmind_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U techmind_user -d techmind"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  # ── 2. Microservicio FastAPI ML (Python) ──────────────────────────────────
+  fastapi:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    container_name: techmind-fastapi
+    restart: unless-stopped
+    mem_limit: 220m
+    memswap_limit: 440m
+    cpus: "0.50"
+    ports:
+      - "8000:8000"
+    environment:
+      - PG_HOST=postgres
+      - PG_PORT=5432
+      - PG_DB=techmind
+      - PG_USER=techmind_user
+      - PG_PASSWORD=techmind_pass
+      - MODEL_PATH=./data-science/models
+      - ADMIN_USER=${ADMIN_USER:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}
+      - JWT_SECRET=${JWT_SECRET:-supersecret_techmind_token_2026}
+    # --workers 1       : un solo worker (ideal para 1 vCPU, menor consumo RAM)
+    # --limit-max-requests 500: reinicia el worker cada 500 requests (libera leaks de memoria)
+    command: >
+      uvicorn app.main:app
+      --host 0.0.0.0
+      --port 8000
+      --workers 1
+      --limit-max-requests 500
+    depends_on:
+      postgres:
+        condition: service_healthy
+    profiles:
+      - full
+
+  # ── 3. API Backend Spring Boot (Java 17) ──────────────────────────────────
+  springboot:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: techmind-backend
+    restart: unless-stopped
+    # mem_limit cubre: heap JVM (-Xmx256m) + metaspace (~80MB) + overhead de proceso
+    # El Dockerfile ya define: -Xms64m -Xmx256m -XX:+UseSerialGC
+    mem_limit: 384m
+    memswap_limit: 768m
+    cpus: "0.50"
+    ports:
+      - "8080:8080"
+    environment:
+      - PG_HOST=postgres
+      - PG_PORT=5432
+      - PG_DB=techmind
+      - PG_USER=techmind_user
+      - PG_PASSWORD=techmind_pass
+      - TECHMIND_DS_API_URL=http://fastapi:8000
+      - ADMIN_USER=${ADMIN_USER:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}
+      - JWT_SECRET=${JWT_SECRET:-supersecret_techmind_token_2026}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      fastapi:
+        condition: service_started
+    profiles:
+      - full
+
+  # ── 4. Frontend Web UI (Nginx Alpine) ─────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: techmind-frontend
+    restart: unless-stopped
+    mem_limit: 48m
+    memswap_limit: 96m
+    cpus: "0.10"
+    ports:
+      - "5173:80"
+    depends_on:
+      - springboot
+    profiles:
+      - full
+
+volumes:
+  techmind_data:
+    name: techmind_postgres_data

@@ -1,0 +1,11 @@
+{
+  "categoria": "Backend",
+  "probabilidad": 0.1681,
+  "informaciones_adicionales": [
+    "rutas",
+    "tokens jwt",
+    "jwt",
+    "controladores",
+    "configuración"
+  ]
+}

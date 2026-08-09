@@ -1,0 +1,28 @@
+{
+  "detail": [
+    {
+      "type": "value_error",
+      "loc": [
+        "body",
+        "titulo"
+      ],
+      "msg": "Value error, El campo no puede estar vacío",
+      "input": "",
+      "ctx": {
+        "error": {}
+      }
+    },
+    {
+      "type": "value_error",
+      "loc": [
+        "body",
+        "texto"
+      ],
+      "msg": "Value error, El campo no puede estar vacío",
+      "input": "",
+      "ctx": {
+        "error": {}
+      }
+    }
+  ]
+}

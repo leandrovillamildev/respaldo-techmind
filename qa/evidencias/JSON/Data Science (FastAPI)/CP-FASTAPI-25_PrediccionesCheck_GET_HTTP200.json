@@ -1,0 +1,26 @@
+[
+  {
+    "id": 2,
+    "titulo": "Prueba QA",
+    "categoria": "Data Science",
+    "probabilidad": 0.16,
+    "keywords": [],
+    "created_at": "2026-08-02T22:42:33.291615Z",
+    "texto": "Prueba QA"
+  },
+  {
+    "id": 1,
+    "titulo": "Introducción a Spring Boot",
+    "categoria": "Backend",
+    "probabilidad": 0.77,
+    "keywords": [
+      "spring boot",
+      "boot",
+      "spring",
+      "presentan apis",
+      "presentan apis rest"
+    ],
+    "created_at": "2026-08-02T22:42:09.373561Z",
+    "texto": "En este contenido se presentan los conceptos básicos para la creación de APIs REST utilizando Java y Spring Boot."
+  }
+]

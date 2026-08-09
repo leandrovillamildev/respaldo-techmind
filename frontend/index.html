@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>TechMind - Clasificador Inteligente de Conocimiento Técnico</title>
+
+    <!-- Preconnect y Preload de Google Fonts con display=block para eliminar la transición de fuentes (font swap) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Outfit:wght@400;600;700&amp;display=block" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Outfit:wght@400;600;700&amp;display=block"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block"
+        rel="stylesheet" />
+
+    <!-- Tailwind Configuration (Stitch Cyber AI Theme) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary-fixed": "var(--primary-fixed)",
+                        "secondary": "#c0c1ff",
+                        "on-surface": "var(--on-surface)",
+                        "secondary-container": "#3131c0",
+                        "primary": "#d0bcff",
+                        "on-tertiary": "#003824",
+                        "tertiary-container": "#00a572",
+                        "surface-dim": "var(--background)",
+                        "on-secondary-container": "#b0b2ff",
+                        "on-primary-fixed-variant": "#5516be",
+                        "error-container": "#93000a",
+                        "outline": "var(--outline)",
+                        "surface-variant": "#2d3449",
+                        "tertiary": "#4edea3",
+                        "outline-variant": "var(--outline-variant)",
+                        "error": "#ffb4ab",
+                        "on-background": "var(--on-background)",
+                        "background": "var(--background)",
+                        "on-secondary": "#1000a9",
+                        "surface-bright": "#31394d",
+                        "surface": "var(--surface)",
+                        "inverse-primary": "#6d3bd7",
+                        "surface-container-high": "var(--surface-container-high)",
+                        "inverse-on-surface": "#283044",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-container": "#00311f",
+                        "on-error": "#690005",
+                        "surface-container": "var(--surface-container)",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "on-primary-fixed": "#23005c",
+                        "surface-container-highest": "var(--surface-container-highest)",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-lowest": "var(--surface-container-lowest)",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-secondary-fixed": "#07006c",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-tint": "#d0bcff",
+                        "inverse-surface": "var(--on-surface)",
+                        "on-surface-variant": "var(--on-surface-variant)",
+                        "on-primary-container": "#340080",
+                        "on-primary": "#3c0091",
+                        "primary-container": "#a078ff",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-low": "var(--surface-container-low)"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "container-max": "1440px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
+                        "label-sm": ["'JetBrains Mono'", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+                        "body-lg": ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
+                        "headline-md": ["Outfit", "Inter", "system-ui", "-apple-system", "sans-serif"],
+                        "display-lg": ["Outfit", "Inter", "system-ui", "-apple-system", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        :root {
+            --sidebar-width: 256px;
+            --sidebar-collapsed-width: 64px;
+            --background: #e8e2d5;
+            --on-background: #231f18;
+            --surface: #e8e2d5;
+            --on-surface: #231f18;
+            --on-surface-variant: #524b3f;
+            --surface-container-lowest: #f5f0e6;
+            --surface-container-low: #dfd8c9;
+            --surface-container: #d6cfbf;
+            --surface-container-high: #ccc4b3;
+            --surface-container-highest: #c1b8a6;
+            --primary-fixed: #5c3e91;
+            --primary-container: #d9c8f5;
+            --on-primary-container: #1b0052;
+            --outline: #756d5e;
+            --outline-variant: #c4bcae;
+            --glass-bg: rgba(238, 232, 221, 0.9);
+            --glass-border: rgba(92, 62, 145, 0.16);
+            --glass-hover-border: rgba(92, 62, 145, 0.38);
+            --glass-hover-shadow: rgba(92, 62, 145, 0.1);
+            --glass-shadow: 0 4px 24px rgba(60, 50, 30, 0.08);
+            --input-bg: #eee7d9;
+            --subtle-border: rgba(92, 62, 145, 0.14);
+            --medium-border: rgba(92, 62, 145, 0.22);
+            --led-ok-bg: #15803d;
+            --led-ok-text: #15803d;
+            --led-error-bg: #dc2626;
+            --led-error-text: #dc2626;
+            --json-text: #044e3a;
+            --json-bg: #e2dbcd;
+        }
+
+        .dark {
+            --background: #0b1326;
+            --on-background: #dae2fd;
+            --surface: #0b1326;
+            --on-surface: #dae2fd;
+            --on-surface-variant: #cbc3d7;
+            --surface-container-lowest: #060e20;
+            --surface-container-low: #131b2e;
+            --surface-container: #171f33;
+            --surface-container-high: #222a3d;
+            --surface-container-highest: #2d3449;
+            --primary-fixed: #e9ddff;
+            --primary-container: #a078ff;
+            --on-primary-container: #340080;
+            --outline: #958ea0;
+            --outline-variant: #494454;
+            --glass-bg: rgba(11, 19, 38, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --glass-hover-border: rgba(208, 188, 255, 0.2);
+            --glass-hover-shadow: rgba(208, 188, 255, 0.1);
+            --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --input-bg: #131b2e;
+            --subtle-border: rgba(255, 255, 255, 0.05);
+            --medium-border: rgba(255, 255, 255, 0.08);
+            --led-ok-bg: #34d399;
+            --led-ok-text: #34d399;
+            --led-error-bg: #f87171;
+            --led-error-text: #f87171;
+            --json-text: #6ee7b7;
+            --json-bg: var(--surface-container-lowest);
+        }
+
+        /* Claude-style sidebar transitions */
+        #sidebar {
+            width: var(--sidebar-width);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #sidebar.sidebar-collapsed {
+            width: var(--sidebar-collapsed-width);
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        #sidebar.sidebar-collapsed #btn-sidebar-toggle {
+            display: none !important;
+        }
+        #sidebar.sidebar-collapsed .sidebar-brand-text,
+        #sidebar.sidebar-collapsed .sidebar-label,
+        #sidebar.sidebar-collapsed .sidebar-status-text,
+        #sidebar.sidebar-collapsed #status-chevron,
+        #sidebar.sidebar-collapsed #status-popover {
+            display: none !important;
+        }
+        #sidebar.sidebar-collapsed #btn-brand-home {
+            justify-content: center;
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+        #sidebar.sidebar-collapsed .sidebar-nav-item {
+            justify-content: center !important;
+            width: 44px !important;
+            height: 44px !important;
+            margin: 0.5rem auto !important;
+            padding: 0 !important;
+            border-radius: 0.75rem !important;
+        }
+        #sidebar.sidebar-collapsed #btn-status-trigger {
+            justify-content: center !important;
+            width: 44px !important;
+            height: 44px !important;
+            margin: 0.5rem auto !important;
+            padding: 0 !important;
+        }
+        #sidebar.sidebar-collapsed #overall-status-led {
+            margin: 0 auto;
+        }
+        #main-content {
+            transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-panel {
+            background-color: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .glass-panel:hover {
+            border-color: var(--glass-hover-border);
+            box-shadow: 0 0 20px var(--glass-hover-shadow);
+        }
+
+        .tech-input {
+            background-color: var(--input-bg) !important;
+            border: 1px solid var(--subtle-border) !important;
+            color: var(--on-surface) !important;
+        }
+
+        .tech-input:focus {
+            border-color: var(--primary-fixed) !important;
+            box-shadow: 0 0 0 4px rgba(103, 80, 164, 0.15) !important;
+        }
+
+        .tech-input::placeholder {
+            color: var(--on-surface-variant) !important;
+            opacity: 0.5;
+        }
+
+        .tech-select {
+            background-color: var(--input-bg) !important;
+            border: 1px solid var(--subtle-border) !important;
+            color: var(--on-surface) !important;
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2379747e' d='M2 4l4 4 4-4'/%3E%3C/svg%3E") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 12px center !important;
+            background-size: 12px !important;
+            padding-right: 32px !important;
+        }
+
+        .tech-select:focus {
+            border-color: var(--primary-fixed) !important;
+            box-shadow: 0 0 0 4px rgba(103, 80, 164, 0.15) !important;
+        }
+
+        .subtle-border {
+            border-color: var(--subtle-border) !important;
+        }
+
+        .medium-border {
+            border-color: var(--medium-border) !important;
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, rgba(208, 188, 255, 0) 0%, rgba(208, 188, 255, 0.5) 50%, rgba(208, 188, 255, 0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer-anim 2s infinite;
+        }
+
+        @keyframes shimmer-anim {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .led-pulse {
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(111, 251, 190, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(111, 251, 190, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(111, 251, 190, 0);
+            }
+        }
+
+        /* Sidebar buttons hover unificado para Clasificador, Historial y Estado de servicios */
+        .sidebar-nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.875rem 1rem;
+            border-radius: 0.75rem;
+            font-family: var(--font-label-sm, inherit);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        /* Estado Activo (no hovered) */
+        .sidebar-nav-item.active-nav {
+            background-color: var(--primary-container) !important;
+            color: var(--on-primary-container) !important;
+            box-shadow: 0 4px 14px rgba(92, 62, 145, 0.2) !important;
+            border-color: transparent !important;
+        }
+
+        /* Hover unificado en Modo Claro (aplica a todos) */
+        .sidebar-nav-item:hover {
+            background-color: rgba(92, 62, 145, 0.12) !important;
+            color: #4c1d95 !important;
+            border-color: rgba(92, 62, 145, 0.25) !important;
+            box-shadow: 0 2px 10px rgba(92, 62, 145, 0.08) !important;
+        }
+
+        /* Hover unificado en Modo Oscuro (aplica a todos) */
+        .dark .sidebar-nav-item:hover {
+            background-color: rgba(160, 120, 255, 0.18) !important;
+            color: #e9ddff !important;
+            border-color: rgba(208, 188, 255, 0.3) !important;
+            box-shadow: 0 2px 12px rgba(160, 120, 255, 0.15) !important;
+        }
+
+        /* Fuerza que los iconos, textos y chevrons internos hereden el color en hover */
+        .sidebar-nav-item:hover *,
+        .sidebar-nav-item:hover span {
+            color: inherit !important;
+        }
+
+        /* Evita que títulos/URLs sin espacios desborden el layout en pantallas angostas */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p,
+        label,
+        span {
+            overflow-wrap: break-word;
+        }
+
+        /* Los glows ambientales con blur de 120px son costosos en GPU móvil */
+        @media (max-width: 767px) {
+            .ambient-glow {
+                filter: blur(70px);
+            }
+            #main-content {
+                margin-left: 0 !important;
+            }
+            #sidebar {
+                width: var(--sidebar-width) !important;
+            }
+            #btn-sidebar-toggle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background min-h-[100dvh] font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container transition-colors duration-300">
+
+    <!-- Ambient Glow Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none opacity-20 dark:opacity-40 transition-opacity duration-500">
+        <div
+            class="ambient-glow absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-inverse-primary/20 blur-[120px]">
+        </div>
+        <div
+            class="ambient-glow absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary-fixed/10 blur-[120px]">
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container"
+        class="fixed top-4 left-4 right-4 sm:left-auto sm:top-6 sm:right-6 z-50 flex flex-col gap-3 sm:max-w-md pointer-events-none">
+    </div>
+
+    <!-- Sidebar Overlay for mobile -->
+    <div id="sidebar-overlay"
+        class="fixed inset-0 bg-black/60 z-30 hidden transition-opacity duration-300"></div>
+
+    <!-- Side Navigation Shell -->
+    <aside id="sidebar"
+        class="fixed left-0 top-0 h-[100dvh] max-w-[85vw] border-r subtle-border shadow-2xl bg-surface-container-low z-40 flex flex-col py-4 px-3 -translate-x-full md:translate-x-0">
+        <!-- Sidebar Header: Brand + Toggle -->
+        <div class="flex items-start justify-between mb-6 px-1 border-b subtle-border pb-4">
+            <div id="btn-brand-home" class="min-w-0 cursor-pointer group flex flex-col items-center text-center flex-1 pr-1" title="Ir al inicio">
+                <h1 class="sidebar-brand-text font-headline-md text-purple-950 dark:text-primary-fixed tracking-tight text-lg sm:text-xl font-extrabold group-hover:opacity-85 transition-opacity leading-tight">
+                    TechMind
+                </h1>
+                <p class="sidebar-brand-text font-label-sm text-[10px] sm:text-[11px] text-on-surface-variant opacity-80 leading-tight mt-0.5" data-i18n="brand_subtitle">Organización inteligente</p>
+                <span class="material-symbols-outlined text-3xl text-purple-700 dark:text-primary mt-2 group-hover:scale-110 transition-transform duration-300 shrink-0"
+                    style="font-variation-settings: 'FILL' 1;">psychology</span>
+            </div>
+            <button id="btn-sidebar-toggle" type="button"
+                class="shrink-0 p-1.5 min-h-[36px] min-w-[36px] rounded-lg hover:bg-surface-variant/50 transition-all text-on-surface-variant hover:text-on-surface flex items-center justify-center cursor-pointer active:scale-90"
+                title="Colapsar sidebar">
+                <span class="material-symbols-outlined text-xl" id="sidebar-toggle-icon">chevron_left</span>
+            </button>
+        </div>
+        <nav class="flex-1 space-y-1.5 overflow-y-auto">
+            <a id="nav-classifier"
+                class="sidebar-nav-item active-nav flex items-center gap-3 transition-all cursor-pointer">
+                <span class="material-symbols-outlined text-xl shrink-0">category</span>
+                <span class="sidebar-label font-label-sm text-sm font-bold" data-i18n="nav_classifier">Clasificador</span>
+            </a>
+            <a id="nav-history"
+                class="sidebar-nav-item flex items-center gap-3 transition-all text-on-surface-variant cursor-pointer">
+                <span class="material-symbols-outlined text-xl shrink-0">history</span>
+                <span class="sidebar-label font-label-sm text-sm font-semibold" data-i18n="nav_history">Historial</span>
+            </a>
+            <a id="nav-analytics"
+                class="sidebar-nav-item flex items-center gap-3 transition-all text-on-surface-variant cursor-pointer">
+                <span class="material-symbols-outlined text-xl shrink-0">analytics</span>
+                <span class="sidebar-label font-label-sm text-sm font-semibold" data-i18n="nav_analytics">Análisis</span>
+            </a>
+        </nav>
+        <!-- Sidebar Bottom Controls: Theme Toggle & Service Status -->
+        <div class="relative mt-auto pt-4 border-t medium-border space-y-1" style="overflow:visible;">
+            <!-- Theme Toggle Button in Sidebar -->
+            <a id="btn-theme-toggle"
+                class="sidebar-nav-item flex items-center gap-3 transition-all text-on-surface-variant cursor-pointer"
+                title="Cambiar tema">
+                <span class="material-symbols-outlined text-xl shrink-0" id="theme-toggle-icon">light_mode</span>
+                <span class="sidebar-label font-label-sm text-sm font-semibold" id="theme-toggle-text">Cambiar tema</span>
+            </a>
+
+            <!-- Status Trigger Button -->
+            <button id="btn-status-trigger" type="button"
+                class="sidebar-nav-item w-full flex items-center justify-between gap-3 text-on-surface-variant cursor-pointer active:scale-95 focus:outline-none">
+                <div class="flex items-center gap-2.5">
+                    <div id="overall-status-led" class="w-2.5 h-2.5 rounded-full bg-rose-500 shrink-0"></div>
+                    <span class="sidebar-label sidebar-status-text font-label-sm text-sm font-semibold" data-i18n="service_status">Estado de servicios</span>
+                </div>
+                <span id="status-chevron"
+                    class="material-symbols-outlined text-lg transition-transform duration-300">expand_less</span>
+            </button>
+
+            <!-- Status Popover Dropdown -->
+            <div id="status-popover"
+                class="absolute bottom-full left-0 right-0 mb-3 bg-surface-container-high backdrop-blur-xl border medium-border rounded-2xl shadow-2xl p-4 flex flex-col gap-3 transition-all duration-300 opacity-0 pointer-events-none transform translate-y-2 z-50">
+                
+                <!-- Microservicios -->
+                <div class="font-label-sm text-[10px] font-bold tracking-wider uppercase opacity-60 text-on-surface-variant" data-i18n="microservices">Microservicios</div>
+                <div id="status-springboot" class="flex items-center gap-2">
+                    <div class="w-2.5 h-2.5 rounded-full shrink-0" style="background-color: var(--led-error-bg);"></div>
+                    <span class="font-label-sm text-[11px] font-medium" style="color: var(--led-error-text);">Spring Boot :8080</span>
+                </div>
+                <div id="status-fastapi" class="flex items-center gap-2">
+                    <div class="w-2.5 h-2.5 rounded-full shrink-0" style="background-color: var(--led-error-bg);"></div>
+                    <span class="font-label-sm text-[11px] font-medium" style="color: var(--led-error-text);">FastAPI ML :8000</span>
+                </div>
+                <div id="status-postgres" class="flex items-center gap-2">
+                    <div class="w-2.5 h-2.5 rounded-full led-pulse shrink-0" style="background-color: var(--led-ok-bg);"></div>
+                    <span class="font-label-sm text-[11px] font-medium" style="color: var(--led-ok-text);">PostgreSQL :5432</span>
+                </div>
+
+                <div class="border-t medium-border my-0.5"></div>
+
+                <!-- Métricas del Servidor OCI -->
+                <div class="flex items-center justify-between">
+                    <span class="font-label-sm text-[10px] font-bold tracking-wider uppercase opacity-60 text-on-surface-variant" data-i18n="oci_server">Servidor OCI</span>
+                    <span class="font-label-sm text-[10px] text-tertiary-container dark:text-tertiary font-medium flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[12px]">schedule</span> Uptime: <span id="sys-uptime-val" class="font-semibold">--</span>
+                    </span>
+                </div>
+
+                <!-- Metric 1: CPU -->
+                <div class="space-y-1">
+                    <div class="flex justify-between items-center text-[11px] font-label-sm">
+                        <span class="text-on-surface-variant flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px]">memory</span> CPU
+                        </span>
+                        <span id="sys-cpu-val" class="font-semibold text-on-surface">--%</span>
+                    </div>
+                    <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                        <div id="sys-cpu-bar" class="bg-cyan-500 h-full w-0% transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Metric 2: RAM -->
+                <div class="space-y-1">
+                    <div class="flex justify-between items-center text-[11px] font-label-sm">
+                        <span class="text-on-surface-variant flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px]">developer_board</span> <span data-i18n="ram_used">RAM Usada</span>
+                        </span>
+                        <span id="sys-ram-val" class="font-semibold text-on-surface">-- / -- MB</span>
+                    </div>
+                    <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                        <div id="sys-ram-bar" class="bg-purple-500 h-full w-0% transition-all duration-500"></div>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] pt-0.5">
+                        <span id="sys-ram-free-badge" class="text-emerald-600 dark:text-emerald-400 font-medium">Libre: -- MB</span>
+                        <span id="sys-ram-pct" class="text-on-surface-variant font-mono">--%</span>
+                    </div>
+                </div>
+
+                <!-- Metric 3: Swap -->
+                <div class="space-y-1">
+                    <div class="flex justify-between items-center text-[11px] font-label-sm">
+                        <span class="text-on-surface-variant flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px]">swap_horiz</span> Swap
+                        </span>
+                        <span id="sys-swap-val" class="font-semibold text-on-surface">-- / -- MB</span>
+                    </div>
+                    <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+                        <div id="sys-swap-bar" class="bg-amber-500 h-full w-0% transition-all duration-500"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content"
+        class="relative z-10 min-h-[100dvh] flex flex-col p-4 sm:p-6 md:p-8" style="margin-left: var(--sidebar-width);">
+
+        <!-- Header Section -->
+        <header
+            class="flex flex-row items-center justify-between gap-2 sm:gap-6 mb-6 sm:mb-8 pt-2 sm:pt-4 md:pt-0 border-b subtle-border pb-4 sm:pb-6">
+            <div class="flex items-center gap-2.5 sm:gap-4 min-w-0 flex-1">
+                <!-- Mobile-only hamburger -->
+                <button id="btn-sidebar-mobile"
+                    class="md:hidden shrink-0 p-2 min-h-[40px] min-w-[40px] sm:min-h-[44px] sm:min-w-[44px] rounded-xl bg-surface-container-high border subtle-border text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/80 transition-all active:scale-95 focus:outline-none flex items-center justify-center shadow-lg"
+                    title="Abrir menú">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+                <div class="min-w-0 flex-1">
+                    <h2 id="main-header-title"
+                        class="font-headline-md text-base sm:text-2xl md:text-3xl text-on-surface font-bold tracking-tight leading-snug">
+                        Clasificación de contenido técnico</h2>
+                    <p id="main-header-subtitle" class="font-body-md text-[11px] sm:text-sm md:text-base text-on-surface-variant mt-0.5 sm:mt-1 line-clamp-1 sm:line-clamp-none opacity-85">Ingresá textos
+                        para clasificarlos en tiempo real.</p>
+                </div>
+            </div>
+            <div class="relative flex items-center gap-1.5 sm:gap-2 shrink-0">
+                <!-- Language Toggle Button -->
+                <button id="btn-lang-toggle" type="button"
+                    class="p-2 sm:px-3 min-h-[40px] sm:min-h-[44px] rounded-xl bg-surface-container-high border subtle-border text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/80 transition-all active:scale-95 focus:outline-none flex items-center gap-1.5 shadow-lg font-label-sm text-xs font-semibold cursor-pointer"
+                    title="Change language / Cambiar idioma">
+                    <span class="material-symbols-outlined text-xl">translate</span>
+                    <span id="lang-toggle-text" class="hidden sm:inline">EN</span>
+                </button>
+                <button id="btn-admin-auth" type="button"
+                    class="p-2 sm:px-3.5 min-h-[40px] sm:min-h-[44px] rounded-xl bg-surface-container-high border subtle-border text-on-surface-variant hover:text-purple-950 dark:hover:text-on-surface hover:bg-purple-900/10 dark:hover:bg-surface-variant/80 hover:border-purple-800/25 transition-all active:scale-95 focus:outline-none flex items-center gap-2 shadow-lg font-label-sm text-xs font-semibold cursor-pointer"
+                    title="Iniciar Sesión Administrador">
+                    <span class="material-symbols-outlined text-xl" id="admin-auth-icon">admin_panel_settings</span>
+                    <span id="admin-auth-text" class="hidden sm:inline">Admin Login</span>
+                    <span id="admin-auth-chevron" class="material-symbols-outlined text-sm hidden transition-transform duration-200">expand_more</span>
+                </button>
+
+                <!-- Menu Dropdown de Admin Logueado -->
+                <div id="admin-user-popover"
+                    class="absolute top-full right-0 mt-2 w-56 bg-surface-container-high backdrop-blur-xl border medium-border rounded-2xl shadow-2xl p-4 flex flex-col gap-3 transition-all duration-200 opacity-0 pointer-events-none transform -translate-y-2 z-50">
+                    <div class="flex items-center gap-2.5 pb-2 border-b medium-border">
+                        <div class="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-700 dark:text-purple-300 shrink-0">
+                            <span class="material-symbols-outlined text-lg text-purple-700 dark:text-purple-300">verified_user</span>
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <p class="font-label-sm text-xs font-bold text-on-surface truncate" id="popover-admin-username">Admin</p>
+                            <p class="font-label-sm text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse"></span> <span data-i18n="active_session">Sesión Activa</span>
+                            </p>
+                        </div>
+                    </div>
+                    <button id="btn-admin-logout" type="button"
+                        class="w-full px-3 py-2.5 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-rose-700 dark:text-rose-300 text-xs font-label-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-sm">
+                        <span class="material-symbols-outlined text-sm text-rose-700 dark:text-rose-300">logout</span>
+                        <span class="text-rose-700 dark:text-rose-300 font-bold" data-i18n="logout">Cerrar Sesión</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Classifier View Section -->
+        <div id="classifier-view-section" class="flex-1 flex flex-col">
+
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-10 lg:mb-12">
+
+                <!-- Left Column: Input Form -->
+                <section class="lg:col-span-7 xl:col-span-7 flex flex-col gap-6 min-w-0">
+                    <div
+                        class="glass-panel rounded-2xl p-5 sm:p-6 md:p-8 flex-1 flex flex-col transition-all duration-300 relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
+
+                        <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface mb-6 font-bold" data-i18n="form_title">
+                            Ingresar contenido técnico
+                        </h3>
+
+                        <form class="flex flex-col gap-6 flex-1" onsubmit="return false;">
+                            <div class="space-y-2">
+                                <label class="font-label-sm text-sm text-on-surface-variant ml-1 font-semibold"
+                                    for="content-title" data-i18n="label_title">Título del documento o artículo</label>
+                                <input id="content-title" type="text"
+                                    class="tech-input w-full rounded-xl px-4 py-3.5 font-body-md text-base focus:outline-none transition-all"
+                                    placeholder="ej. orquestación avanzada de contenedores con Kubernetes"
+                                    data-i18n-placeholder="placeholder_title" />
+                            </div>
+
+                            <div class="space-y-2 flex-1 flex flex-col">
+                                <label class="font-label-sm text-sm text-on-surface-variant ml-1 font-semibold"
+                                    for="content-body" data-i18n="label_body">Contenido técnico (texto crudo, markdown o resumen)</label>
+                                <textarea id="content-body"
+                                    class="tech-input w-full flex-1 min-h-[220px] rounded-xl px-4 py-3.5 font-body-md text-base focus:outline-none transition-all resize-none leading-relaxed"
+                                    placeholder="Pegue aquí el texto o resumen técnico para que el modelo determine la categoría y extraiga los conceptos clave..."
+                                    data-i18n-placeholder="placeholder_body"></textarea>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 mt-4">
+                                <button id="btn-classify" type="button"
+                                    class="group relative w-full sm:w-auto px-6 sm:px-10 py-4 rounded-xl font-label-sm text-base font-bold text-white overflow-hidden transition-all duration-300 active:scale-95 shadow-xl shadow-primary-container/30 cursor-pointer">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-inverse-primary to-primary-container group-hover:scale-105 transition-transform duration-300">
+                                    </div>
+                                    <div class="relative flex items-center justify-center gap-2.5">
+                                        <span class="material-symbols-outlined text-lg">science</span>
+                                        <span data-i18n="btn_classify">Clasificar con TechMind</span>
+                                    </div>
+                                </button>
+                                <button id="btn-clear-form" type="button"
+                                    class="w-full sm:w-auto px-6 py-4 rounded-xl font-label-sm text-base font-bold border border-outline-variant/50 text-on-surface-variant hover:text-purple-950 dark:hover:text-on-surface hover:bg-purple-900/10 dark:hover:bg-surface-variant/40 hover:border-purple-800/30 transition-all duration-200 active:scale-95 cursor-pointer flex items-center justify-center gap-2.5">
+                                    <span class="material-symbols-outlined text-lg">delete_sweep</span>
+                                    <span data-i18n="btn_clear">Limpiar formulario</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Right Column: Results Card -->
+                <section class="lg:col-span-5 xl:col-span-5 flex flex-col gap-6 min-w-0">
+                    <div id="results-card"
+                        class="glass-panel rounded-2xl p-5 sm:p-6 md:p-8 flex-1 flex flex-col relative border-t-4 border-t-primary-fixed transition-all duration-500">
+
+                        <h3
+                            class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold text-center mt-2 mb-6" data-i18n="results_title">
+                            Resultado del análisis
+                        </h3>
+
+                        <!-- Category Badge Container -->
+                        <div class="mb-8 text-center px-3 py-5 sm:py-6 rounded-xl border subtle-border"
+                            style="background-color: var(--surface-container);">
+                            <p
+                                class="font-label-sm text-xs sm:text-sm text-on-surface-variant mb-3 uppercase tracking-widest font-semibold" data-i18n="predicted_category">
+                                Categoría predicha</p>
+                            <div id="category-badge-container">
+                                <div
+                                    class="inline-flex max-w-full items-center gap-3 px-4 sm:px-6 py-2.5 rounded-full border text-base sm:text-lg font-bold bg-primary/10 border-primary/30 text-primary-fixed">
+                                    <span data-i18n="waiting">Esperando análisis...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Confidence Meter -->
+                        <div class="mb-8 space-y-3">
+                            <div class="flex flex-wrap justify-between items-end gap-x-3 gap-y-1">
+                                <span
+                                    class="font-label-sm text-xs sm:text-sm text-on-surface-variant font-medium min-w-0" data-i18n="confidence">Confianza del Modelo</span>
+                                <span id="confidence-score"
+                                    class="font-label-sm text-base text-primary-fixed font-bold shrink-0">0%</span>
+                            </div>
+                            <div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden p-0.5">
+                                <div id="confidence-bar"
+                                    class="h-full bg-gradient-to-r from-primary-container to-tertiary-fixed rounded-full w-[0%] relative transition-all duration-700 ease-out">
+                                    <div class="absolute inset-0 shimmer"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Keyword Tags -->
+                        <div class="mb-8 flex-1 min-w-0">
+                            <p
+                                class="font-label-sm text-xs sm:text-sm text-on-surface-variant mb-3 font-semibold uppercase tracking-wider" data-i18n="keywords_title">
+                                Palabras clave extraídas</p>
+                            <div id="keywords-list" class="flex flex-wrap gap-2">
+                                <span class="text-on-surface-variant text-sm sm:text-base italic opacity-60" data-i18n="keywords_placeholder">Las entidades detectadas aparecerán aquí...</span>
+                            </div>
+                        </div>
+
+                        <!-- Toggle Action -->
+                        <div class="mt-auto pt-4 border-t subtle-border">
+                            <button id="btn-view-json" type="button"
+                                class="w-full py-3.5 rounded-xl border border-primary/20 bg-primary/5 text-primary-fixed font-label-sm text-sm font-semibold hover:bg-primary/10 transition-colors flex items-center justify-center gap-2 group cursor-pointer">
+                                <span
+                                    class="material-symbols-outlined text-lg group-hover:rotate-180 transition-transform duration-500">code</span>
+                                <span data-i18n="btn_view_json">Ver JSON</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Recent Entries Footer Grid -->
+            <section id="history-section" class="mt-auto pt-8 border-t medium-border">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div class="min-w-0">
+                        <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold" data-i18n="recent_title">Contenidos clasificados recientemente</h3>
+                    </div>
+                </div>
+
+                <div id="history-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="col-span-full py-8 text-center glass-panel rounded-xl">
+                        <span class="material-symbols-outlined text-4xl text-outline mb-2 animate-spin">refresh</span>
+                        <p class="text-on-surface-variant text-sm font-label-sm" data-i18n="loading_history_grid">Cargando publicaciones guardadas desde PostgreSQL...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- History View Section (Subpage) -->
+        <div id="history-view-section" class="hidden flex-1 flex flex-col gap-6">
+            <div
+                class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full pb-6 border-b subtle-border">
+                <!-- Search Input -->
+                <div class="relative flex-1 min-w-0">
+                    <span
+                        class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg opacity-60">search</span>
+                    <input id="search-history" type="text" placeholder="Buscar por título o palabra clave..."
+                        data-i18n-placeholder="search_placeholder"
+                        class="tech-input w-full rounded-xl pl-10 pr-4 py-2.5 min-h-[44px] font-body-md text-sm focus:outline-none transition-all">
+                </div>
+                <!-- Category Filter -->
+                <div class="flex items-center gap-3 min-w-0">
+                    <label for="filter-category"
+                        class="font-label-sm text-sm text-on-surface-variant font-medium whitespace-nowrap shrink-0" data-i18n="filter_label">Filtrar:</label>
+                    <select id="filter-category"
+                        class="tech-select flex-1 sm:flex-initial min-w-0 rounded-xl px-4 py-2.5 min-h-[44px] font-body-md text-sm focus:outline-none transition-all cursor-pointer">
+                        <option value="all">Todas las categorías</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="DevOps">DevOps</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Bases de Datos">Bases de Datos</option>
+                        <option value="Seguridad">Seguridad</option>
+                        <option value="Cloud">Cloud</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Detailed History Cards -->
+            <div id="detailed-history-list" class="flex flex-col gap-4">
+                <!-- Dynamically populated by app.js -->
+            </div>
+        </div>
+
+        <!-- Analytics View Section -->
+        <div id="analytics-view-section" class="hidden flex-1 flex flex-col gap-5 sm:gap-6 lg:gap-8">
+            <!-- KPI Summary Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+                <!-- KPI 1: Total Consultas -->
+                <div class="glass-panel rounded-2xl p-4 sm:p-5 border subtle-border flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div class="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 shrink-0">
+                        <span class="material-symbols-outlined text-xl sm:text-2xl">analytics</span>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="font-label-sm text-[10px] sm:text-xs text-on-surface-variant uppercase tracking-wider font-semibold truncate" data-i18n="total_classifications">Total Clasificaciones</p>
+                        <h3 id="kpi-total-queries" class="font-headline-md text-xl sm:text-2xl font-bold text-on-surface mt-0.5 truncate">--</h3>
+                    </div>
+                </div>
+
+                <!-- KPI 2: Categoría Líder -->
+                <div class="glass-panel rounded-2xl p-4 sm:p-5 border subtle-border flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 shrink-0">
+                        <span class="material-symbols-outlined text-xl sm:text-2xl">emoji_events</span>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="font-label-sm text-[10px] sm:text-xs text-on-surface-variant uppercase tracking-wider font-semibold truncate" data-i18n="top_category">Categoría Líder</p>
+                        <h3 id="kpi-top-category" class="font-headline-md text-lg sm:text-xl font-bold text-on-surface mt-0.5 truncate">--</h3>
+                    </div>
+                </div>
+
+                <!-- KPI 3: Confianza Promedio -->
+                <div class="glass-panel rounded-2xl p-4 sm:p-5 border subtle-border flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 shrink-0">
+                        <span class="material-symbols-outlined text-xl sm:text-2xl">verified</span>
+                    </div>
+                    <div class="min-w-0">
+                        <p class="font-label-sm text-[10px] sm:text-xs text-on-surface-variant uppercase tracking-wider font-semibold truncate" data-i18n="avg_confidence">Confianza Promedio</p>
+                        <h3 id="kpi-avg-confidence" class="font-headline-md text-xl sm:text-2xl font-bold text-on-surface mt-0.5 truncate">--%</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8">
+                <!-- Left Chart: Distribución por Categoría (Doughnut) -->
+                <div class="lg:col-span-5 glass-panel rounded-2xl p-4 sm:p-6 border subtle-border flex flex-col min-w-0">
+                    <div class="flex items-center justify-between mb-3 sm:mb-4">
+                        <h3 class="font-headline-md text-sm sm:text-lg font-bold text-on-surface flex items-center gap-2">
+                            <span class="material-symbols-outlined text-purple-600 dark:text-primary text-xl sm:text-2xl">pie_chart</span>
+                            <span data-i18n="dist_by_category">Distribución por categoría</span>
+                        </h3>
+                    </div>
+                    <div class="relative flex-1 h-[220px] sm:h-[280px] max-h-[340px] flex items-center justify-center">
+                        <canvas id="chart-categories"></canvas>
+                    </div>
+                </div>
+
+                <!-- Right Chart: Actividad por Hora del Día (Area Chart) -->
+                <div class="lg:col-span-7 glass-panel rounded-2xl p-4 sm:p-6 border subtle-border flex flex-col min-w-0">
+                    <div class="flex items-center justify-between mb-3 sm:mb-4">
+                        <h3 class="font-headline-md text-sm sm:text-lg font-bold text-on-surface flex items-center gap-2">
+                            <span class="material-symbols-outlined text-cyan-600 dark:text-cyan-400 text-xl sm:text-2xl">schedule</span>
+                            <span data-i18n="activity_by_hour">Actividad por hora del día (24hs)</span>
+                        </h3>
+                    </div>
+                    <div class="relative flex-1 h-[220px] sm:h-[280px] max-h-[340px] flex items-center justify-center">
+                        <canvas id="chart-hourly"></canvas>
+                    </div>
+                </div>
+
+                <!-- Bottom Full-Width Section: Palabras Clave Más Frecuentes (Interactive Tag Cloud) -->
+                <div class="lg:col-span-12 glass-panel rounded-2xl p-4 sm:p-6 border subtle-border flex flex-col min-w-0">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 mb-3">
+                        <h3 class="font-headline-md text-sm sm:text-lg font-bold text-on-surface flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-xl sm:text-2xl">label</span>
+                            <span data-i18n="top_keywords">Palabras clave más frecuentes</span>
+                        </h3>
+                        <span class="font-label-sm text-[11px] sm:text-xs text-on-surface-variant" data-i18n="top_terms">Top términos clasificados</span>
+                    </div>
+                    <div id="keywords-cloud-container" class="flex flex-wrap gap-2 sm:gap-2.5 items-center justify-start py-2">
+                        <!-- Renderizado dinámicamente como badges/pills con frecuencia -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal JSON Respuesta Cruda -->
+    <div id="json-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-md p-3 sm:p-4">
+        <div
+            class="glass-panel w-full max-w-2xl rounded-2xl p-4 sm:p-6 border medium-border shadow-2xl flex flex-col max-h-[88dvh] sm:max-h-[80vh]">
+            <div class="flex justify-between items-center gap-2 mb-4 pb-3 border-b medium-border">
+                <h4
+                    class="font-headline-md text-base sm:text-xl text-primary-fixed font-bold flex items-center gap-2 min-w-0">
+                    <span class="material-symbols-outlined shrink-0">code</span>
+                    <span data-i18n="json_modal_title">Resultado del análisis en JSON</span>
+                </h4>
+                <button id="modal-close" type="button"
+                    class="shrink-0 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-colors p-1.5 min-h-[44px] min-w-[44px] rounded-xl flex items-center justify-center cursor-pointer"
+                    title="Cerrar ventana">
+                    <span class="material-symbols-outlined text-2xl pointer-events-none">close</span>
+                </button>
+            </div>
+            <pre id="json-content"
+                class="font-mono text-[11px] sm:text-xs p-3 sm:p-4 rounded-xl overflow-auto flex-1 leading-relaxed border subtle-border"
+                style="background-color: var(--json-bg); color: var(--json-text);"></pre>
+            <div class="mt-4 pt-3 border-t medium-border flex justify-end">
+                <button id="btn-copy-json" type="button"
+                    class="w-full sm:w-auto justify-center px-5 py-2.5 min-h-[44px] rounded-xl border border-primary/30 bg-primary/10 hover:bg-primary/20 text-primary-fixed font-label-sm text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer active:scale-95 shadow-md">
+                    <span class="material-symbols-outlined text-base">content_copy</span>
+                    <span id="copy-btn-text">Copiar JSON</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal"
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-md p-4 transition-all duration-300 overflow-y-auto">
+        <div class="glass-panel w-full max-w-md rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl relative animate-fade-in my-auto mx-auto shrink-0">
+            <button id="btn-close-admin-modal" type="button"
+                class="absolute top-4 right-4 p-2 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-variant/50 transition-all cursor-pointer">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-700 dark:text-purple-300 shrink-0">
+                    <span class="material-symbols-outlined text-2xl text-purple-700 dark:text-purple-300">admin_panel_settings</span>
+                </div>
+                <div>
+                    <h3 class="font-headline-md text-xl text-on-surface font-bold" data-i18n="admin_title">Iniciar sesión admin</h3>
+                    <p class="font-body-md text-xs text-on-surface-variant" data-i18n="admin_subtitle">Acceso a borrado y gestión de consultas</p>
+                </div>
+            </div>
+            
+            <div id="admin-login-error" class="hidden mb-4 p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-label-sm flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm shrink-0" style="color: var(--led-error-text)">error</span>
+                <span id="admin-login-error-text" style="color: var(--led-error-text)">Usuario o contraseña incorrectos.</span>
+            </div>
+
+            <form id="form-admin-login" class="space-y-4" onsubmit="return false;">
+                <div>
+                    <label class="block font-label-sm text-xs text-on-surface-variant mb-1.5 font-semibold" data-i18n="admin_user_label">Usuario administrador</label>
+                    <input id="admin-username-input" type="text" placeholder="Ej. admin" data-i18n-placeholder="admin_user_placeholder" autocomplete="username" class="w-full px-4 py-2.5 rounded-xl tech-input text-sm focus:outline-none font-body-md" required />
+                </div>
+                <div>
+                    <label class="block font-label-sm text-xs text-on-surface-variant mb-1.5 font-semibold" data-i18n="admin_pass_label">Contraseña</label>
+                    <input id="admin-password-input" type="password" placeholder="••••••••" autocomplete="current-password" class="w-full px-4 py-2.5 rounded-xl tech-input text-sm focus:outline-none font-body-md" required />
+                </div>
+                <div class="pt-2 flex items-center justify-end gap-3">
+                    <button id="btn-cancel-admin-modal" type="button" class="px-4 py-2 rounded-xl border border-white/10 text-on-surface-variant hover:text-on-surface text-xs font-label-sm font-semibold transition-all" data-i18n="admin_cancel">Cancelar</button>
+                    <button id="btn-submit-admin-login" type="submit" class="px-5 py-2 rounded-xl bg-primary-container hover:bg-primary-container/80 text-on-primary-container text-xs font-label-sm font-bold shadow-lg transition-all flex items-center gap-2 cursor-pointer active:scale-95">
+                        <span class="material-symbols-outlined text-sm">login</span>
+                        <span data-i18n="admin_submit">Ingresar</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Principal -->
+    <script src="app.js?v=1.6.0"></script>
+
+</body>
+
+</html>

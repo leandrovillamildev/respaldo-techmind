@@ -1,0 +1,10 @@
+{
+  "categoria": "Bases de Datos",
+  "probabilidad": 0.136,
+  "informaciones_adicionales": [
+    "inyección sql",
+    "seguridad",
+    "inyección",
+    "sql"
+  ]
+}

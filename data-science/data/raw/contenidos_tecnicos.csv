@@ -1,0 +1,260 @@
+titulo,texto,categoria
+Introducción a Spring Boot,En este contenido se presentan los conceptos básicos para la creación de APIs REST utilizando Java y Spring Boot.,Backend
+Arquitectura de microservicios,"Se describen los principios de diseño de microservicios, comunicación entre servicios y patrones como API Gateway y Service Discovery.",Backend
+Consultas avanzadas en SQL,"Tutorial sobre subconsultas, joins y funciones de ventana en SQL para consultas complejas.",Bases de Datos
+Pipelines de Scikit-Learn,Se explica cómo construir pipelines reproducibles que encadenan preprocesamiento y modelado en Scikit-Learn.,Data Science
+Hooks de React explicados,"Se explican los hooks useState, useEffect y useContext para manejar estado y ciclo de vida en componentes React.",Frontend
+Gestión segura de secretos,Tutorial sobre el manejo seguro de credenciales y variables sensibles en aplicaciones y pipelines de despliegue.,Seguridad
+Integración continua con GitHub Actions,Guía para configurar pipelines de CI/CD utilizando GitHub Actions y automatizar pruebas y despliegues.,DevOps
+Redis para caché de datos,Tutorial sobre el uso de Redis como almacén de datos en memoria para caché de aplicaciones.,Bases de Datos
+Componentes en React,"Introducción a la creación de componentes funcionales en React, uso de props y composición de interfaces de usuario.",Frontend
+React Native para iOS y Android,Se explica cómo construir aplicaciones móviles nativas utilizando React Native y JavaScript.,Mobile
+Orquestación con Kubernetes,"Se presentan los conceptos básicos de Kubernetes: pods, deployments, servicios y escalado de aplicaciones.",DevOps
+Escalabilidad de aplicaciones en la nube,Se explican estrategias de escalado horizontal y vertical de aplicaciones desplegadas en proveedores de nube.,Cloud
+TypeScript en aplicaciones web,"Se describe cómo TypeScript añade tipado estático a JavaScript, mejorando la mantenibilidad de aplicaciones frontend.",Frontend
+Persistencia con JPA e Hibernate,Este tutorial cubre el mapeo objeto-relacional con JPA e Hibernate para conectar aplicaciones Java con bases de datos relacionales.,Backend
+Prevención de inyección SQL,Buenas prácticas para prevenir ataques de inyección SQL mediante consultas parametrizadas.,Seguridad
+Gestión de estado con Redux,"Este contenido explica el patrón de gestión de estado global con Redux, acciones, reducers y el store.",Frontend
+Colas de mensajes con RabbitMQ,Se explica cómo utilizar RabbitMQ para desacoplar servicios backend mediante colas de mensajes asíncronas.,Backend
+Validación de datos en APIs REST,Buenas prácticas para validar el cuerpo de las solicitudes HTTP y devolver códigos de estado apropiados en una API REST.,Backend
+Kotlin para desarrollo Android,Guía práctica sobre el uso de Kotlin para el desarrollo de aplicaciones nativas en Android.,Mobile
+Node.js y Express desde cero,"Guía práctica para construir un servidor HTTP con Node.js y el framework Express, incluyendo rutas, middlewares y controladores.",Backend
+SwiftUI para desarrollo iOS,Introducción a SwiftUI para construir interfaces declarativas en aplicaciones para iOS.,Mobile
+Accesibilidad web (a11y),Buenas prácticas de accesibilidad web para que las interfaces sean utilizables por personas con discapacidad.,Frontend
+MongoDB y bases de datos NoSQL,"Introducción a las bases de datos documentales con MongoDB, colecciones y consultas de agregación.",Bases de Datos
+Criptografía aplicada a aplicaciones,Introducción a algoritmos de cifrado simétrico y asimétrico utilizados para proteger datos en aplicaciones.,Seguridad
+Vectorización de texto con TF-IDF,Se explica la técnica TF-IDF para convertir texto en vectores numéricos utilizables por modelos de machine learning.,Data Science
+Cómputo en la nube con OCI Compute,Se describe cómo desplegar aplicaciones utilizando instancias de cómputo de Oracle Cloud Infrastructure.,Cloud
+Vue.js para principiantes,"Guía introductoria a Vue.js, su sistema de reactividad, directivas y componentes de un solo archivo.",Frontend
+Funciones serverless en la nube,Tutorial sobre el uso de funciones serverless para ejecutar procesamiento específico sin administrar servidores.,Cloud
+Feature engineering para modelos ML,Técnicas de ingeniería de características para mejorar el desempeño de modelos de aprendizaje automático.,Data Science
+GraphQL vs REST,"Comparación entre GraphQL y REST para el diseño de APIs, ventajas de cada enfoque y casos de uso recomendados.",Backend
+Series temporales con Pandas,"Manejo de datos de series temporales, remuestreo y análisis de tendencias utilizando Pandas.",Data Science
+Monitoreo de aplicaciones con Prometheus,Tutorial sobre cómo recolectar métricas de aplicaciones y visualizarlas con Prometheus y Grafana.,DevOps
+Visualización de datos con Matplotlib,"Guía práctica para crear gráficos de barras, histogramas y diagramas de dispersión con Matplotlib y Seaborn.",Data Science
+Regresión logística con Scikit-Learn,Tutorial sobre cómo entrenar y evaluar un modelo de regresión logística para problemas de clasificación con Scikit-Learn.,Data Science
+Almacenamiento local en apps móviles,Se describen estrategias de almacenamiento local como SQLite y SharedPreferences en aplicaciones móviles.,Mobile
+Patrones de diseño en backend,"Se presentan patrones de diseño como Repository, Factory y Singleton aplicados al desarrollo de aplicaciones backend en Java.",Backend
+Contenedores con Docker,"Introducción a Docker, creación de imágenes, Dockerfiles y contenedores para empaquetar aplicaciones.",DevOps
+Autenticación de dos factores,Se explica cómo implementar autenticación de dos factores para reforzar la seguridad de acceso a sistemas.,Seguridad
+Servicios de OCI Object Storage,Introducción al almacenamiento de objetos en Oracle Cloud Infrastructure para guardar modelos y documentos.,Cloud
+Despliegue continuo en la nube,Buenas prácticas para automatizar el despliegue continuo de aplicaciones en entornos de nube pública.,DevOps
+Clustering con K-Means,Introducción al algoritmo K-Means para agrupamiento no supervisado de datos y selección del número de clusters.,Data Science
+Modelado de bases de datos relacionales,Se explican los principios de normalización y modelado entidad-relación para bases de datos relacionales.,Bases de Datos
+Manejo de excepciones en Spring,Spring Boot permite centralizar el manejo de errores mediante ControllerAdvice y ExceptionHandler para APIs REST robustas.,Backend
+Consumo de APIs con Fetch y Axios,Se explica cómo realizar solicitudes HTTP desde el frontend utilizando Fetch API y la librería Axios.,Frontend
+Autenticación con JWT en Java,Se explica cómo implementar autenticación basada en tokens JWT en una API REST desarrollada con Spring Boot y Spring Security.,Backend
+Índices y optimización de consultas,Se describe cómo los índices mejoran el rendimiento de las consultas en bases de datos relacionales.,Bases de Datos
+Desarrollo de apps con Flutter,Introducción al desarrollo de aplicaciones móviles multiplataforma utilizando Flutter y el lenguaje Dart.,Mobile
+Infraestructura como código con Terraform,Se explica cómo definir y provisionar infraestructura en la nube utilizando Terraform de forma declarativa.,DevOps
+Análisis exploratorio de datos,"Se presenta el proceso de EDA, incluyendo estadística descriptiva, visualización y detección de valores atípicos.",Data Science
+Transacciones y propiedades ACID,Se explican las propiedades ACID y el manejo de transacciones en bases de datos relacionales.,Bases de Datos
+Manejo de sesiones y cookies,"Este contenido aborda el manejo de sesiones de usuario, cookies seguras y tokens de refresco en aplicaciones backend.",Backend
+Limpieza de datos con Pandas,Este contenido cubre técnicas de limpieza y transformación de datos utilizando la librería Pandas en Python.,Data Science
+Optimización de rendimiento web,"Técnicas para mejorar el rendimiento de aplicaciones web, incluyendo lazy loading, code splitting y caché de assets.",Frontend
+Redes virtuales en la nube,Introducción a la configuración de redes privadas virtuales y balanceadores de carga en entornos cloud.,Cloud
+Angular y sus módulos,"Introducción a Angular, su arquitectura basada en módulos, componentes, servicios e inyección de dependencias.",Frontend
+Django REST Framework,"Introducción a la construcción de APIs con Python utilizando Django REST Framework, serializers y vistas basadas en clases.",Backend
+Notificaciones push en apps móviles,Tutorial sobre la implementación de notificaciones push utilizando Firebase Cloud Messaging.,Mobile
+Diseño responsive con CSS Grid,Tutorial sobre CSS Grid y Flexbox para crear diseños web responsivos que se adaptan a distintos tamaños de pantalla.,Frontend
+Métricas de evaluación de modelos,"Se describen métricas como precisión, recall, F1-score y matriz de confusión para evaluar modelos de clasificación.",Data Science
+Fundamentos de OWASP Top 10,Se presentan las vulnerabilidades más comunes en aplicaciones web según el listado OWASP Top 10.,Seguridad
+Gestión de logs centralizados,Se describe cómo centralizar y analizar logs de aplicaciones distribuidas utilizando herramientas como ELK Stack.,DevOps
+Inyección de dependencias en Spring Boot,"Tutorial sobre el uso de @Autowired, @Component y la configuración de beans en el contenedor IoC de Spring Boot.",Backend
+Manejo de transacciones con @Transactional,Se explica la propagación y niveles de aislamiento de transacciones en Spring Boot y Hibernate.,Backend
+Spring Cloud Gateway para microservicios,"Guía para configurar un API Gateway centralizado que gestiona ruteo, filtros y seguridad en microservicios.",Backend
+Clientes HTTP declarativos con Feign,Se describe cómo consumir servicios REST externos mediante la interfaz @FeignClient en Spring Cloud.,Backend
+Spring Boot Actuator y métricas,"Cómo exponer endpoints de monitoreo de salud, métricas y estado del sistema con Spring Boot Actuator.",Backend
+Patrón DTO y MapStruct en Java,Buenas prácticas para separar entidades de la base de datos de los objetos de transferencia DTO usando MapStruct.,Backend
+Validación de peticiones con Jakarta Validation,"Uso de anotaciones como @NotNull, @Size y @Email para validar peticiones HTTP en controladores REST.",Backend
+Middlewares personalizados en Express.js,"Cómo crear cadenas de middlewares en Node.js para procesamiento de headers, logging y manejo centralizado de errores.",Backend
+Arquitectura modular con NestJS,"Introducción al framework NestJS para Node.js, basado en TypeScript, módulos, controladores y servicios decorados.",Backend
+ORM Prisma para Node.js y TypeScript,"Tutorial sobre la definición de esquemas de datos, migraciones y consultas tipadas con el ORM Prisma.",Backend
+FastAPI e inyección de dependencias,Uso del sistema de dependencias de FastAPI (Depends) para reutilizar lógica de autenticación y conexión a base de datos.,Backend
+Migraciones de base de datos con Alembic,Se explica cómo gestionar el historial de esquemas de base de datos relacionales en aplicaciones Python con Alembic y SQLAlchemy.,Backend
+Procesamiento asíncrono con Celery y Redis,Cómo ejecutar tareas pesadas en segundo plano con la cola de tareas Celery usando Redis como broker de mensajes.,Backend
+Comunicación asíncrona con Apache Kafka,Guía para la publicación y consumo de eventos entre microservicios utilizando Apache Kafka y tópicos.,Backend
+Protección de APIs con Rate Limiting,Estrategias para limitar la tasa de peticiones por IP en servidores backend utilizando algoritmos de ventana deslizante.,Backend
+Diseño de APIs RESTful nivel Richardson,"Explicación del modelo de madurez de Richardson para APIs REST, recursos, métodos HTTP y enlaces HATEOAS.",Backend
+Resolvers y esquemas en GraphQL,"Construcción de APIs GraphQL en backend con consultas, mutaciones y resolvers para evitar el over-fetching de datos.",Backend
+Servicios gRPC con Protocol Buffers,Desarrollo de microservicios de alto rendimiento con gRPC y serialización binaria utilizando Protocol Buffers.,Backend
+Patrón Hexagonal / Ports and Adapters,Cómo organizar el código backend desacoplando el núcleo de dominio de la infraestructura y bases de datos.,Backend
+WebClient reactivo en Spring WebFlux,Consumo asíncrono y no bloqueante de servicios HTTP externos utilizando WebClient en la pila reactiva de Spring.,Backend
+Servidor HTTP con Go y Gorilla Mux,Creación de un microservicio rápido y liviano en lenguaje Go utilizando el enrutador Gorilla Mux y structs.,Backend
+Hooks de React: useCallback y useMemo,Optimización de rendimiento en componentes React evitando re-renderizados innecesarios mediante memorización de funciones y valores.,Frontend
+Gestión de estado global con Redux Toolkit,"Tutorial sobre la configuración de slices, reducers y async thunks para manejar el estado complejo en aplicaciones React.",Frontend
+Next.js App Router y Server Components,"Arquitectura de componentes del lado del servidor (RSC) en Next.js, renderizado híbrido y optimización de carga.",Frontend
+React Query para caché de peticiones HTTP,"Manejo de estado de servidor, reintento automático y almacenamiento en caché de peticiones REST con TanStack Query en React.",Frontend
+Vue 3 Composition API y ref/reactive,"Cómo estructurar componentes reactivos modernos en Vue 3 utilizando script setup, ref y computed properties.",Frontend
+Gestión de estado con Pinia en Vue,Uso de la librería oficial Pinia para definir stores centralizados y modulares en aplicaciones Vue 3.,Frontend
+Angular Signals y reactividad granular,Introducción al nuevo modelo de reactividad con Signals en Angular para actualizar la interfaz sin necesidad de Zone.js.,Frontend
+RxJS Observables e inyección en Angular,"Uso de flujos de datos asíncronos con RxJS, operadores pipe, map, switchMap y servicios inyectables en Angular.",Frontend
+TypeScript avanzado: Generics e Interfaces,"Cómo escribir código frontend tipado y seguro utilizando tipos genéricos, interfaces extendidas y type guards.",Frontend
+Formularios reactivos con React Hook Form y Zod,Construcción de formularios web eficientes con validación de esquemas en tiempo real utilizando Zod y React Hook Form.,Frontend
+Estilos con Tailwind CSS y Tokens de diseño,Creación de componentes UI modernos y responsivos utilizando clases de utilidad de Tailwind CSS y modo oscuro.,Frontend
+Renderizado del lado del servidor (SSR vs SSG),Diferencias y ventajas entre Server-Side Rendering y Static Site Generation para SEO y tiempo de carga web.,Frontend
+Micro-frontends con Module Federation,Arquitectura para dividir aplicaciones web grandes en micro-frontends independientes integrados en tiempo de ejecución.,Frontend
+WebSockets en el navegador con Socket.io,Implementación de interfaces web en tiempo real como chats y dashboards interactivos usando WebSockets.,Frontend
+Componentes Web nativos (Web Components),Creación de elementos personalizados reutilizables y encapsulados mediante Shadow DOM y plantillas HTML.,Frontend
+Optimización de Core Web Vitals,"Estrategias frontend para mejorar las métricas LCP, FID y CLS mediante optimización de imágenes, fuentes y scripts.",Frontend
+CSS Flexbox y modelos de caja responsivos,"Dominio del diseño flexible con CSS Flexbox, alineación de ejes y adaptación a pantallas móviles.",Frontend
+Animaciones fluidas con Framer Motion,Creación de transiciones de página y micro-interacciones animadas de alto rendimiento en componentes React.,Frontend
+Single Page Applications (SPA) y enrutamiento,Funcionamiento de los enrutadores del lado del cliente como React Router para navegación sin recargar la página.,Frontend
+Shadcn UI y componentes accesibles,Uso de librerías de componentes UI basadas en Radix Primitives para construir interfaces accesibles y personalizables.,Frontend
+Procesamiento de datos con Pandas DataFrame,"Manipulación avanzada de estructuras de datos relacionales, agrupamientos groupby y tablas pivote en Python.",Data Science
+Limpieza e imputación de valores nulos,"Técnicas para tratar datos faltantes en datasets mediante interpolación, media, mediana o algoritmos KNNImputer.",Data Science
+Transformación de características con StandardScaler,Normalización y estandarización de variables numéricas para escalar features antes de entrenar algoritmos ML.,Data Science
+Codificación de variables categóricas,Uso de One-Hot Encoding y Label Encoding en Scikit-Learn para convertir variables cualitativas en representación numérica.,Data Science
+Algoritmo Random Forest para clasificación,Entrenamiento de un ensamble de árboles de decisión para resolver problemas de clasificación complejos con Scikit-Learn.,Data Science
+Gradient Boosting con XGBoost y LightGBM,Aplicación de algoritmos de aumento de gradiente de alto rendimiento para tabular datos y competiciones de Data Science.,Data Science
+Optimización de hiperparámetros con GridSearchCV,Búsqueda exhaustiva sobre un espacio de parámetros para encontrar la combinación óptima de un modelo predictivo.,Data Science
+Validación cruzada estratificada (Stratified K-Fold),Evaluación técnica de modelos garantizando que la proporción de clases en cada fold coincida con el dataset completo.,Data Science
+Matriz de confusión y métricas F1-Score,"Análisis detallado de métricas de clasificación: precisión, sensibilidad (recall), F1-Score y curvas ROC-AUC.",Data Science
+Análisis de componentes principales (PCA),Técnica de reducción de dimensionalidad para visualizar datasets complejos preservando la máxima varianza.,Data Science
+Agrupamiento no supervisado con K-Means,Segmentación de clientes o documentos sin etiquetas utilizando el algoritmo K-Means y el método del codo.,Data Science
+Análisis de Series Temporales con Prophet,"Modelado de tendencias, estacionalidad y pronósticos de valores futuros en series temporales con la librería Prophet.",Data Science
+Procesamiento de lenguaje natural (NLP) con NLTK,"Tokenización, remoción de stopwords y lematización de textos en español para pipelines de análisis de texto.",Data Science
+Embeddings de palabras con Word2Vec y FastText,Representación vectorial densa de palabras que captura relaciones semánticas entre términos técnicos.,Data Science
+Similitud de coseno entre vectores de texto,Cálculo de la distancia y similitud semántica entre documentos representados por vectores TF-IDF o embeddings.,Data Science
+Redes neuronales convolucionales (CNN),Principios de procesamiento de imágenes y extracción de características mediante capas convolucionales en PyTorch.,Data Science
+Redes neuronales recurrentes y LSTM,Modelado de secuencias y procesamiento de lenguaje usando capas recurrentes LSTM para capturar contexto temporal.,Data Science
+Visualización interactiva con Plotly y Seaborn,"Creación de gráficos estadísticos avanzados, mapas de calor y distribuciones para informes analíticos.",Data Science
+Detección de anomalías con Isolation Forest,Identificación de valores atípicos y patrones anómalos en grandes conjuntos de datos no etiquetados.,Data Science
+Fine-tuning de modelos BERT en español,Ajuste fino de modelos de lenguaje pre-entrenados como BETO para clasificación avanzada de textos técnicos.,Data Science
+Construcción eficiente de imágenes con Dockerfile,Buenas prácticas para reducir el tamaño de imágenes Docker utilizando multi-stage builds y limpieza de caché.,DevOps
+Orquestación de servicios con Docker Compose,"Definición de entornos multicontenedor con variables de entorno, redes privadas y volúmenes de persistencia.",DevOps
+Despliegues en Kubernetes con Deployments y Pods,"Gestión del ciclo de vida de aplicaciones en Kubernetes mediante pods, réplicas y estrategias de actualización rolling update.",DevOps
+Servicios e Ingress Controllers en Kubernetes,Configuración del tráfico interno y exposición de servicios al exterior mediante Ingress NGINX en clústeres de Kubernetes.,DevOps
+Gestión de configuraciones con ConfigMaps y Secrets,Inyección segura de variables de ambiente y certificados SSL en contenedores de Kubernetes sin recompilar imágenes.,DevOps
+Empaquetado de aplicaciones con Helm Charts,Uso de Helm como gestor de paquetes de Kubernetes para plantilla y despliegue automatizado de recursos complejos.,DevOps
+Pipelines de CI/CD con GitHub Actions,"Automatización de flujos de integración continua: ejecución de pruebas unitarias, compilación y push de imágenes Docker.",DevOps
+Monitoreo de métricas con Prometheus y Grafana,"Instalación de agentes Exporter, recolección de métricas de CPU/Memoria y visualización en tableros de Grafana.",DevOps
+Centralización de logs con la pila ELK,"Ingestión de logs de aplicación y contenedores mediante Filebeat, procesamiento en Logstash y visualización en Kibana.",DevOps
+Automatización de servidores con Ansible Playbooks,Aprovisionamiento y configuración remota de servidores Linux ejecutando tareas declarativas con Ansible.,DevOps
+Escalado automático con Horizontal Pod Autoscaler,Configuración de reglas HPA en Kubernetes para escalar automáticamente el número de réplicas según el consumo de CPU.,DevOps
+Service Mesh y tráfico seguro con Istio,"Implementación de una malla de servicios para observabilidad, gestión de tráfico canario y cifrado mTLS entre pods.",DevOps
+Estrategias de despliegue Blue-Green y Canary,Técnicas de despliegue sin tiempo de inactividad redirigiendo el tráfico gradualmente hacia la nueva versión del software.,DevOps
+Escaneo de vulnerabilidades en imágenes Docker,Uso de herramientas como Trivy o Grype para detectar vulnerabilidades conocidas en las capas de una imagen de contenedor.,DevOps
+Gestión de registros privados de Docker (Harbor / ECR),Configuración de repositorios privados de imágenes de contenedor con permisos de acceso y firma digital de artefactos.,DevOps
+GitOps y despliegue declarativo con ArgoCD,Sincronización continua del estado del clúster de Kubernetes con repositorios Git utilizando el patrón GitOps y ArgoCD.,DevOps
+Integración continua con GitLab CI/CD,"Configuración de gitlab-ci.yml para definir etapas de build, test, staging y producción con ejecutor de runners.",DevOps
+Contenedores rootless para mayor seguridad,Ejecución de daemon de Docker y contenedores sin privilegios de root para mitigar riesgos de elevación de privilegios.,DevOps
+Pruebas de carga e infraestructura con k6,Automatización de pruebas de estrés y rendimiento de peticiones HTTP en infraestructura antes de salir a producción.,DevOps
+Navegación en React Native con React Navigation,"Configuración de Stack Navigators, Tab Navigators y paso de parámetros entre pantallas en aplicaciones móviles.",Mobile
+Desarrollo multiplataforma con Flutter y Dart,Construcción de interfaces fluidas a 60fps usando árboles de widgets y compilación nativa con Flutter.,Mobile
+Gestión de estado con BLoC y Provider en Flutter,Separación de la lógica de negocio de la interfaz de usuario en aplicaciones Flutter mediante flujos de eventos BLoC.,Mobile
+Navegación declarativa en SwiftUI para iOS,"Uso de NavigationStack, NavigationLink y paso de datos de entorno en interfaces declarativas para iPhone y iPad.",Mobile
+Desarrollo Android nativo con Jetpack Compose,Creación de interfaces de usuario modernas y reactivas en Android utilizando funciones composables en Kotlin.,Mobile
+Arquitectura Android: ViewModel y LiveData,Manejo del ciclo de vida de actividades y fragmentos preservando el estado de la pantalla frente a rotaciones.,Mobile
+Base de datos local en Android con Room ORM,"Mapeo de datos en SQLite local mediante DAO, entidades y consultas verificadas en tiempo de compilación con Room.",Mobile
+Persistencia local en iOS con CoreData y SwiftData,"Almacenamiento persistente de objetos de dominio, consultas filtradas y migraciones de esquema en iOS.",Mobile
+Consumo de APIs REST con Retrofit en Kotlin,Definición de interfaces de red con anotaciones y conversión automática de JSON a data classes en Android.,Mobile
+Notificaciones Push con Firebase Cloud Messaging,Integración de FCM en Android e iOS para enviar notificaciones personalizadas en segundo plano y primer plano.,Mobile
+Manejo de permisos en tiempo de ejecución en móviles,"Buenas prácticas para solicitar permisos sensibles como cámara, ubicación GPS y almacenamiento en iOS y Android.",Mobile
+Almacenamiento seguro en dispositivos móviles,Guardado de tokens y claves secretas en Keychain para iOS y EncryptedSharedPreferences para Android.,Mobile
+Módulos nativos personalizados en React Native,Cómo escribir código en Swift/Kotlin para exponer funcionalidades de hardware nativo hacia el lado de JavaScript.,Mobile
+Deep Linking y esquemas de URL en apps móviles,Configuración de enlaces profundos para abrir pantallas específicas de la app desde navegadores o correos.,Mobile
+Animaciones fluidas con Rive y Lottie en móviles,Integración de animaciones vectoriales livianas y compuestas en interfaces de usuario para Flutter y React Native.,Mobile
+Publicación de apps en Google Play Store y App Store,"Proceso de firma de paquetes APK/AAB y certificados de producción, preparación de metadata y revisión.",Mobile
+Pruebas unitarias de interfaz con Espresso y XCTest,"Automatización de tests de UI para verificar la interacción de botones, campos de texto y navegación en móviles.",Mobile
+Sincronización fuera de línea (Offline-first) en apps,Estrategia para permitir a los usuarios operar sin internet y sincronizar datos con el servidor al reconectarse.,Mobile
+Uso de sensores de hardware: GPS y Acelerómetro,Acceso a la geolocalización y sensores de movimiento del dispositivo móvil mediante APIs nativas.,Mobile
+Compilación automatizada de apps con Fastlane,"Herramienta de automatización para generar builds de iOS/Android, gestionar certificados y subir entregas a tiendas.",Mobile
+Subconsultas y funciones de ventana en SQL,"Uso de funciones analíticas ROW_NUMBER(), RANK() y LEAD() para análisis de datos avanzado en PostgreSQL.",Bases de Datos
+Tipos de índices en PostgreSQL: B-Tree vs GIN,Diferencias de rendimiento y casos de uso entre índices B-Tree tradicionales e índices GIN para campos JSONB y texto.,Bases de Datos
+Expresiones de tabla comunes (CTE y WITH),Estructuración de consultas SQL complejas utilizando cláusulas WITH legibles y CTEs recursivas.,Bases de Datos
+Propiedades ACID en sistemas de gestión de BD,"Explicación de Atomicidad, Consistencia, Aislamiento y Durabilidad en motores de bases de datos relacionales.",Bases de Datos
+Niveles de aislamiento de transacciones SQL,"Análisis del impacto de Read Committed, Repeatable Read y Serializable frente a lecturas sucias y fantasma.",Bases de Datos
+Optimización de consultas con EXPLAIN ANALYZE,Cómo interpretar el plan de ejecución de una consulta PostgreSQL para identificar sequential scans y cuellos de botella.,Bases de Datos
+Pool de conexiones con PgBouncer,Configuración de un proxy de conexiones de alto rendimiento para reutilizar sockets y mitigar el costo de nuevas conexiones.,Bases de Datos
+Consultas de agregación en MongoDB,"Uso del framework de agregación de MongoDB ($match, $group, $project, $lookup) para procesar colecciones JSON.",Bases de Datos
+Estructuras de datos avanzadas en Redis,"Uso de Redis Hashes, Sorted Sets y HyperLogLog para casos de uso de listas de clasificación y contadores únicos.",Bases de Datos
+Estrategias de caché: Cache-Aside y Write-Through,Patrones de diseño para integrar cachés en memoria frente a bases de datos relacionales y evitar el Cache Stampede.,Bases de Datos
+Replicación primario-secundario en PostgreSQL,Configuración de replicación en flujo (streaming replication) para alta disponibilidad y lectura distribuida.,Bases de Datos
+Sharding y particionamiento horizontal de tablas,División de tablas gigantes en particiones por rango o hash para acelerar consultas y mantenimiento de datos.,Bases de Datos
+Bases de datos vectoriales para IA (pgvector),Almacenamiento e indexación de vectores de embeddings en PostgreSQL utilizando la extensión pgvector.,Bases de Datos
+Modelado relacional y formas normales (1NF a 3NF),Técnicas de diseño de tablas para eliminar redundancia de datos y garantizar la integridad referencial.,Bases de Datos
+Bases de datos orientadas a grafos con Neo4j,"Modelado de datos altamente interconectados utilizando nodos, relaciones y el lenguaje de consulta Cypher.",Bases de Datos
+Bases de datos de clave-valor y columnas anchas,Casos de uso para Cassandra y DynamoDB en escenarios de alta velocidad de escritura y escalabilidad masiva.,Bases de Datos
+Respaldos lógicos y físicos en PostgreSQL (pg_dump),Estrategias de copia de seguridad periódica y recuperación ante desastres en bases de datos de producción.,Bases de Datos
+Disparadores (Triggers) y Funciones Almacenadas,Automatización de lógica de auditoría y validaciones directamente en el motor de base de datos con PL/pgSQL.,Bases de Datos
+Migración de bases de datos sin tiempo de caída,Técnicas de migración de esquema en caliente mediante escrituras dobles y vistas de compatibilidad.,Bases de Datos
+Bases de datos embebidas con SQLite,Uso de motores de base de datos relacionales ultraligeros en un solo archivo para software de escritorio y móviles.,Bases de Datos
+Firma y verificación de tokens JWT,"Estructura interna de un JSON Web Token (Header, Payload, Signature) y algoritmos HMAC-SHA256 vs RS256.",Seguridad
+Flujo OAuth 2.0 Authorization Code con PKCE,Protocolo de autorización estándar para aplicaciones frontend y móviles que evita la exposición del client secret.,Seguridad
+Vulnerabilidades OWASP: Prevención de XSS,"Diferencias entre XSS Almacenado, Reflejado y basado en DOM, y cómo desinfectar entradas para evitar inyección de scripts.",Seguridad
+Protección contra inyección de SQL (SQLi),Uso obligatorio de consultas preparadas y sentencias parametrizadas para evitar la ejecución de comandos SQL maliciosos.,Seguridad
+Mitigación de ataques CSRF con tokens anti-CSRF,Cómo funcionan los ataques de falsificación de petición en sitio cruzado y el uso de atributos SameSite en cookies.,Seguridad
+Algoritmos de hashing seguro de contraseñas,Por qué no se debe usar MD5 o SHA256 para contraseñas y cómo aplicar algoritmos con sal como Bcrypt y Argon2id.,Seguridad
+Cifrado simétrico AES-256 en reposo,Protección de datos confidenciales almacenados en bases de datos mediante cifrado simétrico con AES-256-GCM.,Seguridad
+Cifrado asimétrico RSA y firmas digitales,Uso de par de claves pública y privada para el intercambio seguro de llaves y autenticación de mensajes.,Seguridad
+"Cabeceras de seguridad HTTP (CSP, HSTS, X-Frame)",Configuración de encabezados HTTP en el servidor para restringir fuentes de scripts y forzar conexiones HTTPS.,Seguridad
+Control de acceso basado en roles (RBAC),Diseño de modelos de permisos granulares donde los usuarios obtienen roles con permisos específicos a recursos.,Seguridad
+Autenticación multifactor con TOTP (Google Auth),Implementación de tokens temporales basados en tiempo para agregar una segunda capa de seguridad al login.,Seguridad
+Seguridad en APIs: Rate Limiting y Throttling,Defensa contra ataques de denegación de servicio (DoS) y fuerza bruta mediante límites de velocidad de peticiones.,Seguridad
+Gestión segura de secretos con HashiCorp Vault,"Almacenamiento centralizado, rotación automática y entrega dinámica de claves de API y credenciales de BD.",Seguridad
+Vulnerabilidad Server-Side Request Forgery (SSRF),Cómo identificar y prevenir que atacantes fuercen al servidor backend a realizar peticiones HTTP hacia la red interna.,Seguridad
+Análisis estático de código de seguridad (SAST),Integración de herramientas como SonarQube en pipelines de CI/CD para detectar fallas de seguridad en el código fuente.,Seguridad
+Pruebas de penetración y escaneo dinámico (DAST),Uso de herramientas automáticas como OWASP ZAP para evaluar vulnerabilidades en aplicaciones web en ejecución.,Seguridad
+Inyección de comandos del sistema operativo,Peligros del uso de funciones como exec() o eval() con entradas no desinfectadas y cómo sanitizarlas.,Seguridad
+Políticas de origen cruzado (CORS) explicadas,Cómo configurar correctamente las cabeceras Access-Control-Allow-Origin para permitir consultas seguras desde otros dominios.,Seguridad
+Prácticas de seguridad en contenedores Docker,"Evitar ejecutar procesos como root, escaneo de imágenes base y aislamiento de namespaces de usuario.",Seguridad
+Autenticación sin contraseña (WebAuthn / Passkeys),El futuro del login seguro utilizando credenciales criptográficas de hardware y biometría en el dispositivo.,Seguridad
+Instancias de cómputo en Oracle Cloud (OCI Compute),Despliegue y escalado de máquinas virtuales Linux/Windows en OCI con formas flexibles de CPU y memoria RAM.,Cloud
+Almacenamiento de objetos en OCI Object Storage,"Uso de buckets de almacenamiento altamente disponibles para guardar artefactos, imágenes y copias de seguridad.",Cloud
+Redes virtuales privadas (VCN) y Subredes,"Diseño de topologías de red en la nube con subredes públicas, privadas, tablas de ruteo y listas de seguridad.",Cloud
+Balanceadores de carga en la nube (Load Balancers),Distribución automática del tráfico entrante entre múltiples instancias de aplicación para alta disponibilidad.,Cloud
+Máquinas virtuales AWS EC2 y Auto Scaling,Configuración de grupos de auto-escalado en AWS para agregar instancias automáticamente según la demanda.,Cloud
+Almacenamiento en AWS S3 y políticas de acceso,"Creación de buckets S3, reglas de ciclo de vida para archivar datos y políticas IAM de acceso restringido.",Cloud
+Arquitectura Serverless con AWS Lambda / OCI Functions,Ejecución de código bajo demanda activado por eventos sin tener que aprovisionar ni administrar servidores.,Cloud
+Bases de datos administradas AWS RDS y OCI DB,Despliegue de motores PostgreSQL/MySQL administrados con respaldos automáticos y réplicas de lectura.,Cloud
+Gestión de identidades y accesos (IAM en Cloud),"Principio de mínimo privilegio aplicado a la creación de usuarios, grupos y políticas en proveedores de nube.",Cloud
+Redes de distribución de contenido (CDN / CloudFront),Aceleración de entrega de contenido estático y dinámico mediante servidores de borde distribuidos globalmente.,Cloud
+Estrategias de migración a la nube (The 6 Rs),"Metodologías para migrar aplicaciones heredadas a la nube: Rehosting, Refactoring, Replatforming y más.",Cloud
+Monitoreo e infraestructura con AWS CloudWatch,"Recolección de logs, configuración de alarmas de consumo y tableros operativos de recursos en la nube.",Cloud
+Despliegue de contenedores en AWS ECS y EKS,Comparación entre el orquestador nativo ECS y el servicio administrado de Kubernetes EKS en la nube AWS.,Cloud
+Cloud Storage Lifecycle Policies,Automatización de la transición de datos desde almacenamiento frecuente hacia clases de archivo frío (Glacier).,Cloud
+Soluciones de nube híbrida y VPN IPSec,Conexión segura y cifrada entre el centro de datos local de una empresa y una Virtual Private Cloud en la nube.,Cloud
+Google Cloud Run para contenedores serverless,Despliegue instantáneo de contenedores HTTP que escalan de cero a miles de instancias automáticamente en GCP.,Cloud
+Optimización de costos en la nube (FinOps),"Prácticas para analizar la factura cloud, eliminar recursos ociosos y reservar capacidad anticipada con descuento.",Cloud
+Recuperación ante desastres (Disaster Recovery) en Cloud,Estrategias de RPO y RTO utilizando replicación entre regiones cloud para continuidad de negocio.,Cloud
+Almacenamiento en bloque OCI Block Volumes,Adición de discos de alto rendimiento IOPS a instancias de cómputo para bases de datos transaccionales.,Cloud
+Servicios de mensajería Cloud: SQS y SNS,Integración de colas de mensajes (SQS) y notificaciones fan-out (SNS) para desacoplar sistemas distribuidos.,Cloud
+Navegación nativa en iOS con SwiftUI NavigationStack,"Cómo estructurar flujos de pantalla declarativos, paso de binding y rutas en SwiftUI para iOS 16+.",Mobile
+Jetpack Compose State Management y Remember,"Manejo de estado reactivo en Android con remember, rememberSaveable y StateFlow en Kotlin Compose.",Mobile
+Compilación nativa de Flutter con Dart AOT,Compilación Ahead-Of-Time (AOT) en Flutter para generar código de máquina nativo súper rápido en iOS y Android.,Mobile
+Módulos nativos en React Native con la nueva arquitectura (Fabric),Integración de C++ y TurboModules en React Native para comunicación directa con el hilo nativo.,Mobile
+Persistencia local rápida con Realm / Isar en móviles,Uso de bases de datos orientadas a objetos ultrarrápidas para sincronización offline en Flutter y React Native.,Mobile
+Inyección de dependencias en Android con Hilt y Dagger,Configuración de anotaciones @AndroidEntryPoint y @HiltViewModel para desacoplar componentes nativos.,Mobile
+Arquitectura MVVM y Clean Architecture en iOS con Swift,"Organización de capas de presentación, caso de uso y repositorio usando Combine y Async/Await en Swift.",Mobile
+Push Notifications nativas con APNs y Firebase en iOS,Configuración de certificados Apple Push Notification service (APNs) y payload de notificaciones en Swift.,Mobile
+Deep Links e Intent Filters en aplicaciones Android,Manejo de esquemas URL personalizados y Universal Links para abrir pantallas específicas de la app móvil.,Mobile
+Pruebas automatizadas de UI en iOS con XCTest y XCUITest,"Escritura de tests de interfaz para simular toques, scroll y aserciones de elementos visuales en iOS.",Mobile
+Optimizaciones de rendimiento de batería y memoria en apps móviles,"Estrategias para minimizar consumo de batería, rastreo GPS en background y fugas de memoria en smartphones.",Mobile
+Kotlin Multiplatform (KMP) para compartir lógica de negocio,"Compartir código de lógica de dominio, modelos y red entre iOS y Android usando Kotlin Multiplatform.",Mobile
+Arquitectura de Redes VPC en AWS: Subnets y NAT Gateway,"Diseño de redes privadas virtuales, tablas de ruteo, subredes públicas/privadas e instancias Bastion en AWS.",Cloud
+Servicios Serverless con AWS Lambda y API Gateway,Creación de microservicios sin servidor mediante funciones Lambda activadas por endpoints de API Gateway.,Cloud
+Oracle Cloud Infrastructure (OCI) Autonomous Database,Despliegue y administración de bases de datos autónomas con autorreparación y escalado dinámico en OCI.,Cloud
+Políticas IAM y Roles de Asunción en AWS / Azure,"Configuración de políticas de seguridad basadas en JSON, mínimo privilegio y asunción de roles IAM para servicios.",Cloud
+Almacenamiento global con AWS S3 y CloudFront CDN,Distribución acelerada de archivos multimedia y assets estáticos mediante puntos de presencia de CloudFront.,Cloud
+Despliegue de infraestructura multinube con Terraform HCL,"Procesamiento de plantillas declarativas en HCL para aprovisionar recursos en AWS, Azure y Google Cloud.",Cloud
+Monitoreo cloud nativo con AWS CloudWatch y CloudTrail,Auditoría de llamadas a la API de AWS y métricas de consumo de cómputo en tiempo real con alarmas SNS.,Cloud
+Google Cloud Run y ejecución de contenedores sin servidor,Despliegue de contenedores Docker HTTP en GCP con autoescalado a cero instancias cuando no hay tráfico.,Cloud
+Estrategias FinOps para optimizar costos de cómputo Cloud,"Uso de instancias Spot/Reservadas, análisis de facturación en la nube y etiquetado de recursos cloud.",Cloud
+Azure App Services y Azure Functions serverless,Alojamiento de aplicaciones web y funciones asíncronas serverless en la plataforma en la nube de Microsoft Azure.,Cloud
+Disaster Recovery y Multi-Region Active-Active en Cloud,Estrategias de replicación transcontinental de datos y conmutación por error DNS para alta disponibilidad cloud.,Cloud
+Conexión privada corporativa con AWS Direct Connect / OCI FastConnect,Enlace dedicado de fibra óptica entre el data center on-premise y la nube privada virtual.,Cloud
+Orquestación de clústeres de Kubernetes con Helm y Kustomize,"Plantillado de recursos de Kubernetes y gestión de entornos dev, staging y prod con Helm charts.",DevOps
+Pipelines de CI/CD avanzados en GitHub Actions con Caching,Reutilización de caché de dependencias npm/maven y paralelizacion de jobs de pruebas automatizadas.,DevOps
+GitOps con ArgoCD y Sincronización Automática,Despliegue continuo declarativo desde Git hacia Kubernetes mediante el agente controlador de ArgoCD.,DevOps
+Microservicios reactivos con Spring Boot 3 y WebFlux,"Programación reactiva no bloqueante en Java utilizando Netty, Flux, Mono y Spring WebFlux.",Backend
+"API REST con FastAPI, Pydantic v2 y SQLModel","Desarrollo de microservicios ultra rápidos en Python con tipado estático, validación Pydantic y ORM async.",Backend
+Comunicación entre microservicios con gRPC y Protobuf,Serialización binaria de alta velocidad mediante Protocol Buffers y contratos gRPC en servicios backend.,Backend
+"Next.js 14 App Router, Server Actions y React Server Components","Renderizado híbrido en el servidor, mutaciones de datos directas con Server Actions y optimización web.",Frontend
+Gestión de estado asíncrono con TanStack React Query v5,"Caché de consultas HTTP, invalidación de queries y mutaciones optimistas en aplicaciones frontend.",Frontend
+Fine-tuning de modelos LLM con LoRA y Hugging Face,Ajuste fino eficiente de modelos de lenguaje grandes mediante adaptadores de baja densidad LoRA.,Data Science
+Vector Embeddings e Indexación HNSW con ChromaDB / pgvector,Búsqueda por similitud semántica de texto utilizando embeddings vectoriales y métricas de coseno.,Data Science
+Consultas analíticas avanzadas en PostgreSQL con Window Functions,"Uso de OVER(), PARTITION BY, DENSE_RANK() y LAG() para reportes complejos en PostgreSQL.",Bases de Datos
+Indexación GIN y búsqueda Full-Text Search en PostgreSQL,Búsqueda rápida de texto en campos JSONB y documentos usando índices GIN y tsvector en PostgreSQL.,Bases de Datos
+"Autenticación robusta con OAuth2, PKCE y JSON Web Tokens (JWT)",Implementación de flujos seguros de autorización sin estado con tokens de acceso y refresh tokens.,Seguridad
+Protección contra inyecciones SQL y mitigación de OWASP Top 10,"Buenas prácticas de sanitización de entradas, cabeceras de seguridad HSTS/CSP y consultas preparadas.",Seguridad

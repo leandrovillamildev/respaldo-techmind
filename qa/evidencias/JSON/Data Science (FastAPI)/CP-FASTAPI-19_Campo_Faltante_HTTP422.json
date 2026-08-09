@@ -1,0 +1,15 @@
+{
+  "detail": [
+    {
+      "type": "missing",
+      "loc": [
+        "body",
+        "titulo"
+      ],
+      "msg": "Field required",
+      "input": {
+        "texto": "Texto sin incluir la clave titulo en el JSON."
+      }
+    }
+  ]
+}
