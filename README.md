@@ -29,7 +29,7 @@ TechMind es una plataforma web inteligente para la **organización y clasificaci
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## 🏗️ Arquitectura del Sistema 123
 
 <div align="center">
 
