@@ -67,7 +67,7 @@ TechMind es una plataforma web inteligente para la **organización y clasificaci
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas 12345
 
 ### ☕ Back-End (Java / Spring Boot)
 - **Java 17 (LTS)**: Lenguaje principal de backend transaccional.
