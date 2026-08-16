@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧠 TechMind
+# 🧠 TechMind 1234
 ### Organización Inteligente del Conocimiento Técnico
 
 [![Java](https://img.shields.io/badge/Java-17-ED8B00?style=flat&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
