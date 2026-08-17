@@ -99,7 +99,7 @@ TechMind es una plataforma web inteligente para la **organización y clasificaci
 
 ---
 
-## 👥 Equipo de Trabajo & Roles 123
+## 👥 Equipo de Trabajo & Roles
 
 | Integrante | Rol / Especialidad | Responsabilidades Principales |
 |-----------|-------------------|--------------------------------|
